@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RawConvert/RawConvert.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RawConvert.Tests/RawConvert.Tests.csproj" />
+  </Folder>
+</Solution>

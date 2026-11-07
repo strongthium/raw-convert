@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- raw-convert: a folder of Canon CR2 photos into a folder of lossless PNG or TIFF files, decoded by Windows' own
+       imaging (WIC) and its Raw Image Extension, so nothing else is needed. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>raw-convert</AssemblyName>
+    <RootNamespace>Strongthium.RawConvert</RootNamespace>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <ApplicationIcon>Assets\raw-convert.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(RuntimeIdentifier)' != ''">
+    <!-- The runtime isn't inside it: the .NET 10 Runtime on the computer runs it. -->
+    <SelfContained>false</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <!-- A release is the one program: no debug symbols beside it. -->
+  <Target Name="LeaveOut" AfterTargets="ComputeResolvedFilesToPublishList">
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="'%(Extension)' == '.pdb'" />
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="RawConvert.Tests" />
+  </ItemGroup>
+</Project>

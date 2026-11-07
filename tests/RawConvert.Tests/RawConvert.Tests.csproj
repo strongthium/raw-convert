@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- The tests of raw-convert: the TIFF reader and writer, the PNG writer, turning by the orientation tag, and whole
+       batches run on made-up CR2 files. What it writes is read back with WPF's decoders (Windows' WIC), which aren't
+       raw-convert's own, so a file that only raw-convert could read fails. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Strongthium.RawConvert.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" Version="4.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RawConvert\RawConvert.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="System.IO" />
+  </ItemGroup>
+</Project>
