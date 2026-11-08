@@ -226,7 +226,6 @@ Strongthium Labs also makes software for running your own servers and Windows PC
   </tr>
 </table>
 
-
 ## License
 
 MIT, see [LICENSE](LICENSE).
